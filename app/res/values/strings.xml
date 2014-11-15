@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">com.hack.impactx</string>
+	<string name="cb_sampling_text">Sampling</string>
+	<string name="cb_sound_text">Sound</string>
+	<string name="sensitivity">Sensitivity: 3.0</string>
+	<string name="noise">Noise sensitivity: 3</string>
+</resources>

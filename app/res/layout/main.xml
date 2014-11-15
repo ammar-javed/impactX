@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+	<CheckBox android:id="@+id/cb_sampling"
+          android:paddingBottom="10px"
+          android:paddingTop="10px"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/cb_sampling_text" />
+
+	<CheckBox android:id="@+id/cb_sound"
+          android:paddingBottom="10px"
+          android:paddingTop="10px"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/cb_sound_text" />
+
+	<TextView
+        android:id="@+id/tv_sensitivity"  
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content"
+        android:textSize="12px" 
+    	android:text="@string/sensitivity"
+    	/>
+
+   <SeekBar android:id="@+id/sb_sensitivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="50"/>
+
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <EditText android:id="@+id/et_sensitivity"
+            android:layout_width="100px"
+            android:layout_height="wrap_content"/>
+
+        <Button android:id="@+id/bt_sensitivity"
+                android:text="Set"
+                android:layout_width="100px"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+	<TextView  
+		android:id="@+id/tv_stepcount"
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content"
+        android:textSize="48px" 
+    	android:text="0"
+		android:visibility="invisible"
+    	/>
+
+
+</LinearLayout>
+
