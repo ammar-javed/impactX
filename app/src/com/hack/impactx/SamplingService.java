@@ -1,31 +1,30 @@
 package com.hack.impactx;
 
-import com.hack.impactx.ISamplingService;
-import com.hack.impactx.ISteps;
-import android.app.Service;
-import android.content.Intent;
-import android.content.res.AssetManager;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.os.DeadObjectException;
-import android.os.Environment;
-import android.os.IBinder;
-import android.os.RemoteException;
-import android.hardware.SensorManager;
-import android.util.Log;
-
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
+
+import android.app.Service;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Intent;
+import android.content.res.AssetManager;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.DeadObjectException;
+import android.os.Environment;
+import android.os.IBinder;
+import android.os.RemoteException;
+import android.util.Log;
 
 public class SamplingService extends Service implements SensorEventListener {
 	static final String LOG_TAG = "SPEEDBUMP_SAMPLINGSERVICE";
@@ -139,12 +138,10 @@ public class SamplingService extends Service implements SensorEventListener {
 	}
 
 	private void startSampling() {
-        Log.d("test", "about to start sampling");
 		if( samplingStarted )
 			return;
-
+		
         initSampling();
-        Log.d("test", "about to start sampling");
        	List<Sensor> sensors = sensorManager.getSensorList( Sensor.TYPE_ACCELEROMETER  );
       	ourSensor = sensors.size() == 0 ? null : sensors.get( 0 );
 
@@ -251,10 +248,10 @@ public class SamplingService extends Service implements SensorEventListener {
 								"bump,"+bumps);
 					++bumps;
 					step( bumps );
-//					if (feedReader != null) {
-//							test.;
-//							feedReader = new BufferedReader( test );
-//						}
+					if (feedReader != null) {
+							test.reset();
+							feedReader = new BufferedReader( test );
+						}
 				}
 				lastEdge = sampleCounter;
 			}
